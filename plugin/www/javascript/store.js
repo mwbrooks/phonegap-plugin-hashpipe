@@ -29,36 +29,44 @@
             successCallback(trueObj);
         };
         this.loadAll_error = errorCallback;
-        PhoneGap.exec("store",["loadAll"]);
+        //PhoneGap.exec("store",["loadAll"]);
+        PhoneGap.exec(this.loadAll_success, this.loadAll_error, 'Store', 'all', [ ]);
     };
 
     Store.prototype.put = function(successCallback,errorCallback,key,data) {
         this.save_success = successCallback;
         this.save_error = errorCallback;
-        PhoneGap.exec("store",["save",encodeURIComponent(key),data]);
+        // PhoneGap.exec("store",["save",encodeURIComponent(key),data]);
+        PhoneGap.exec(this.save_success, this.save_error, 'Store', 'save', [ ]);
     };
 
     Store.prototype.get = function(successCallback,errorCallback,key) {
         this.load_success = successCallback;
         this.load_error = errorCallback;
-        PhoneGap.exec("store",["load",encodeURIComponent(key)]);
+        // PhoneGap.exec("store",["load",encodeURIComponent(key)]);
+        PhoneGap.exec(this.load_success, this.load_error, 'Store', 'load', [ ]);
     };
 
     Store.prototype.remove = function(successCallback, errorCallback, key) {
         this.remove_success = successCallback;
         this.remove_error = errorCallback;
-        PhoneGap.exec("store", ["remove",encodeURIComponent(key)]);
+        // PhoneGap.exec("store", ["remove",encodeURIComponent(key)]);
+        PhoneGap.exec(this.remove_success, this.remove_error, 'Store', 'remove', [ ]);
     };
 
     Store.prototype.nuke = function(successCallback, errorCallback) {
         this.nuke_success = successCallback;
         this.nuke_error = errorCallback;
-        PhoneGap.exec("store", ["nuke"]);
+        // PhoneGap.exec("store", ["nuke"]);
+        PhoneGap.exec(this.nuke_success, this.nuke_error, 'Store', 'nuke', [ ]);
     };
 
     PhoneGap.addConstructor(function() {
         // add plugin to window.plugins
         PhoneGap.addPlugin('store', new Store());
+        
+        // register plugin on native side
+        phonegap.PluginManager.addPlugin('Store', 'com.phonegap.plugins.Store');
         
         // Stub the persistent storage adaptor
         if (!window.navigator) window.navigator = {};
