@@ -15,6 +15,7 @@ website: http://phonegap.com
     <meta name="viewport" id="viewport" content="initial-scale=1.0,user-scalable=no">
     <script src="javascript/json2.js" type="text/javascript"></script>
     <script src="javascript/phonegap.0.9.3.min.js" type="text/javascript"></script>
+    <script src="javascript/example.js" type="text/javascript"></script>
     <script type="text/javascript">
 
         //---------------------------------------------------------------------
@@ -35,7 +36,22 @@ website: http://phonegap.com
                 states[NetworkStatus.REACHABLE_VIA_WIFI_NETWORK]         = 'WiFi connection';
                 document.getElementById('networkStatus').innerHTML = 'isReachable = ' + states[reachability];
             }, 
-            { isIpAddress: false });        
+            { isIpAddress: false });
+            
+             window.plugins.example.echo(
+                 // argument passed to the native plugin
+                 'Hello PhoneGap',
+        
+                 // success callback
+                 function(response) {
+                     alert(response);
+                 },
+        
+                 // error callback
+                 function(error) {
+                     alert('error: ' + error);
+                 }
+             );
         }
         
         // invoked when application is resumed (brought to foregroud)
