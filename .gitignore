@@ -4,4 +4,5 @@
 
 # BlackBerry WebWorks
 
-build/
+plugin/build/
+test/build/
