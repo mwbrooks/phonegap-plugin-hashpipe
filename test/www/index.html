@@ -15,7 +15,7 @@
   <script src="javascript/lib/lawnchair/Lawnchair.js" type="text/javascript"></script>
 
   <script type="text/javascript">
-    document.addEventListener('load', function() {
+    document.addEventListener('deviceready', function() {
       window.adapter = 'blackberry';
       window.store   = null;
       
@@ -27,23 +27,6 @@
       catch(e) {
         alert(e);
       }
-    }, false);
-
-    document.addEventListener('deviceready', function() {
-         window.plugins.example.echo(
-             // argument passed to the native plugin
-             'Hello PhoneGap',
-
-             // success callback
-             function(response) {
-                 alert(response);
-             },
-
-             // error callback
-             function(error) {
-                 alert('error: ' + error);
-             }
-         );
     }, false);
   </script>
 
