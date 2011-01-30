@@ -39,3 +39,10 @@ Edit the Java source code in `plugin/src/com/phonegap/plugins`
 ### JavaScript / Web Assets
 
 Do whatever you need in `plugin/www`
+
+Troubleshooting
+---------------
+
+__All of the Lawnchair tests fail on the simulator:__
+
+Insert an SDCard into the simulator.
