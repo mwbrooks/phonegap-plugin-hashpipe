@@ -37,7 +37,7 @@
         this.save_success = successCallback;
         this.save_error = errorCallback;
         // PhoneGap.exec("store",["save",encodeURIComponent(key),data]);
-        PhoneGap.exec(this.save_success, this.save_error, 'Store', 'save', [ ]);
+        PhoneGap.exec(this.save_success, this.save_error, 'Store', 'save', [ key, data ]);
     };
 
     Store.prototype.get = function(successCallback,errorCallback,key) {
