@@ -1,0 +1,66 @@
+<project name="Build and Test a Plugin" default="help">
+
+    <!-- LOAD PROPERTIES -->
+
+    <property name="plugin.dir"        location="plugin" />
+    <property name="plugin.build.file" location="${plugin.dir}/build.xml" />
+    <property name="plugin.build.dir"  location="${plugin.dir}/build" />
+    <property name="app.dir"           location="test" />
+    <property name="app.build.file"    location="${app.dir}/build.xml" />
+
+    <!-- LOAD DEVICE -->
+
+    <target name="load-device">
+        <build-plugin />
+        <ant antfile="${app.build.file}" target="load-device" dir="${app.dir}" />
+    </target>
+
+    <!-- LOAD SIMULATOR -->
+
+    <target name="load-simulator">
+        <build-plugin />
+        <ant antfile="${app.build.file}" target="load-simulator" dir="${app.dir}" />
+    </target>
+
+    <!-- HELP -->
+
+    <target name="help">
+        <echo>
+NAME
+  ${ant.project.name}
+
+SYNOPSIS
+  ant COMMAND [-D&lt;argument&gt;=&lt;value&gt;]...
+
+DESCRIPTION
+  You can build and deploy your plugin to the test application.
+
+COMMANDS
+  help .............. Show this help menu.
+                        ant, ant help
+
+  load-device ....... Builds and deploys plugin to a connected USB device.
+                        ant load-device
+
+  load-simulator .... Builds and deploys plugin to default simulator.
+                        ant load-simulator
+
+GETTING STARTED
+  1. Edit ${app.dir}/project.properties
+
+  2. &lt;ant load-simulator&gt; to run the plugin on the simulator
+        </echo>
+    </target>
+
+    <!-- MACRO: BUILD PLUGIN -->
+
+    <macrodef name="build-plugin">
+        <sequential>
+            <ant antfile="${plugin.build.file}" target="build" dir="${plugin.dir}" />
+            <copy todir="${app.dir}">
+                <fileset dir="${plugin.build.dir}" />
+            </copy>
+        </sequential>
+    </macrodef>
+
+</project>
