@@ -151,7 +151,43 @@ public class Store extends Plugin {
     }
     
     protected PluginResult load(JSONArray args) {
-        return new PluginResult(PluginResult.Status.OK, new JSONObject());
+        PluginResult result = null;
+        Object storeObj = null;
+        Hashtable hash = new Hashtable();
+        String key = null;
+        String value = null;
+        
+        try {
+            key = args.getString(0);
+        }
+        catch(JSONException e) {
+            return new PluginResult(PluginResult.Status.JSONEXCEPTION, e.getMessage());
+        }
+        
+        try {
+            synchronized(store) {
+                storeObj = store.getContents();
+            }
+            
+            if (storeObj != null) {
+                hash = (Hashtable)storeObj;
+            }
+            
+            if (hash.containsKey(key)) {
+                value = (String)hash.get(key);
+            }
+            else {
+                value = "null";
+            }
+            
+            result = new PluginResult(PluginResult.Status.OK, value);
+        }
+        catch (Exception e) {
+            Logger.log("Exception in save: " + e.getMessage());
+            result = new PluginResult(PluginResult.Status.ERROR, e.getMessage());
+        }
+        
+        return result;
     }
     
     protected PluginResult remove(JSONArray args) {

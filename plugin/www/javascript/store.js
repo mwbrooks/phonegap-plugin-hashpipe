@@ -41,10 +41,14 @@
     };
 
     Store.prototype.get = function(successCallback,errorCallback,key) {
-        this.load_success = successCallback;
+        this.load_success = function(value) {
+            if (value === 'null') value = null;
+            successCallback(value);
+        };
+        
         this.load_error = errorCallback;
         // PhoneGap.exec("store",["load",encodeURIComponent(key)]);
-        PhoneGap.exec(this.load_success, this.load_error, 'Store', 'load', [ ]);
+        PhoneGap.exec(this.load_success, this.load_error, 'Store', 'load', [ key ]);
     };
 
     Store.prototype.remove = function(successCallback, errorCallback, key) {
