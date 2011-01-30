@@ -32,4 +32,8 @@
         // register plugin on native side
         phonegap.PluginManager.addPlugin('Example', 'com.phonegap.plugins.Example');
     });
+    
+    // Stub the persistent storage adaptor
+    if (!window.navigator) window.navigator = {};
+    if (!window.navigator.store) window.navigator.store = {};
 })();
