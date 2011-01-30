@@ -1,3 +1,10 @@
+# Plugin Test Files
+# (this is just annoying when reviewing commits)
+
+test/www/javascript/store.js
+test/www/javascript/example.js
+test/www/ext/example.jar
+
 # Text Editors
 
 ._*
