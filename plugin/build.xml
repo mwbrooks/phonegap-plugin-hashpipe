@@ -3,13 +3,14 @@
     <!-- LOAD PROPERTIES -->
 
     <property prefix="properties"    file="plugin.properties" />
-    <property name="input.jar.src"   value="src" />
-    <property name="input.www.dir"   value="www" />
-    <property name="output.dir"      value="build" />
+    <property name="input.jar.src"   location="src" />
+    <property name="input.www.dir"   location="www" />
+    <property name="output.dir"      location="build" />
     <property name="output.jar.dir"  value="${output.dir}/www/ext" />
     <property name="output.jar.file" value="${properties.plugin.name}.jar" />
     <property name="output.www.dir"  value="${output.dir}/www" />
 
+    <echo message="${output.dir}" />
     <!-- BUILD -->
 
     <target name="build" depends="clean">
@@ -36,8 +37,8 @@ Plugin Package Complete!
 Where:
 ------
 
-  ./${output.www.dir}
-  ./${output.jar.dir}
+  ${output.www.dir}
+  ${output.jar.dir}
 
 Installation:
 -------------
@@ -46,11 +47,11 @@ Installation:
 
   2. Install the native extension:
 
-    - copy ./${output.jar.dir}/${output.jar.file} to /my_project/www/ext/
+    - copy ${output.jar.dir}/${output.jar.file} to /my_project/www/ext/
 
   3. Install the Web assets:
 
-    - copy ./${output.www.dir} to /my_project/www
+    - copy ${output.www.dir} to /my_project/www
         </echo>
     </target>
 
