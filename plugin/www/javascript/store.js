@@ -55,7 +55,7 @@
         this.remove_success = successCallback;
         this.remove_error = errorCallback;
         // PhoneGap.exec("store", ["remove",encodeURIComponent(key)]);
-        PhoneGap.exec(this.remove_success, this.remove_error, 'Store', 'remove', [ ]);
+        PhoneGap.exec(this.remove_success, this.remove_error, 'Store', 'remove', [ key ]);
     };
 
     Store.prototype.nuke = function(successCallback, errorCallback) {
