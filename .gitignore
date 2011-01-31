@@ -13,3 +13,7 @@ test/www/ext/store.jar
 
 plugin/build/
 test/build/
+
+# Mac OS X
+
+.DS_Store
