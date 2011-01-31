@@ -8,7 +8,7 @@
                     successCallback( (value === 'null') ? null : value );
                 };
                 
-                PhoneGap.exec(successWrapper, errorCallback, 'Store', 'load', [key]);
+                PhoneGap.exec(successWrapper, errorCallback, 'Store', 'get', [key]);
             },
             
             getAll: function(successCallback, errorCallback) {
@@ -16,7 +16,7 @@
             },
             
             put: function(successCallback, errorCallback, key, value) {
-                PhoneGap.exec(successCallback, errorCallback, 'Store', 'save', [key, value]);
+                PhoneGap.exec(successCallback, errorCallback, 'Store', 'put', [key, value]);
             },
             
             remove: function(successCallback, errorCallback, key) {
