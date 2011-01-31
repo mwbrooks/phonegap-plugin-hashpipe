@@ -9,6 +9,7 @@ import java.util.Hashtable;
 
 import net.rim.device.api.system.PersistentObject;
 import net.rim.device.api.system.PersistentStore;
+import net.rim.device.api.ui.UiApplication;
 
 import org.json.me.JSONArray;
 import org.json.me.JSONException;
@@ -22,11 +23,20 @@ public class Store extends Plugin {
     protected static final String ACTION_REMOVE = "remove";
     protected static final String ACTION_NUKE   = "nuke";
     
-    private static long KEY = 0x4a9ab8d0f0147f4cL;
-    
     static PersistentObject store;
     static {
-        store = PersistentStore.getPersistentObject(KEY);
+        //
+        // The key to a PersistentStore must be of type 'long'.
+        //
+        // One unique identifier of a BlackBerry application is the class name.
+        // However, hashCode() is not guaranteed to be unique for all Strings.
+        //
+        // @TODO Use a unique key for the PersistentStore.
+        //       An alternative might be 'UiApplication.getUiApplication().hashCode()'
+        //       but BlackBerry provides no documentation on thise implementation.
+        //
+        long key = UiApplication.getUiApplication().getClass().getName().hashCode();
+        store    = PersistentStore.getPersistentObject(key);
     }
     
     /**
