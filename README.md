@@ -5,7 +5,7 @@ PhoneGap Hashpipe Plugin
 
 A PhoneGap plugin to create a hash table database using the platform's SDK. The concept is similar to [DOM Storage / Web Storage](https://developer.mozilla.org/en/dom/storage), with the bonus of no database size restriction.
 
-Supports Lawnchair using the BlackBerry PersistentStore adapter.
+Supports [Lawnchair](https://github.com/xui/lawnchair) using the [BlackBerry PersistentStore adapter](https://github.com/xui/lawnchair/blob/master/src/adaptors/BlackBerryPersistentStorageAdaptor.js).
 
 Supported PhoneGap Platforms
 ----------------------------
