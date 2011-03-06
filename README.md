@@ -44,6 +44,25 @@ To `c:/my-app/www/javascript/hashpipe.js`
 
     <script type="text/javascript" src="javascript/hashpipe.js"></script>
 
+### 5. Create Lawnchair Instance
+
+    <script type="text/javascript">
+        document.addEventListener('deviceready', function() {
+            window.adapter = 'blackberry';
+
+            try {
+                new Lawnchair({adaptor:window.adapter}, function(){
+                    var database = this;
+                    // database.get(...);
+                    // database.save(...);
+                });
+            }
+            catch(e) {
+                alert(e);
+            }
+        }, false);
+    </script>
+
 Running the Tests
 -----------------
 
