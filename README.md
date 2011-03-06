@@ -3,6 +3,11 @@ Persistent Store Plugin
 
 A plugin for PhoneGap BlackBerry WebWorks that implements BlackBerry's PersistentStore.
 
+Supported PhoneGap Platforms
+----------------------------
+
+- BlackBerry WebWorks (5.0 & 6.0)
+
 Directory Structure
 -------------------
 
@@ -10,12 +15,41 @@ Directory Structure
     plugin/ ......... PersistentStore plugin implementation
     plugin/src/ ..... Java implementation
     plugin/www/ ..... Web implementation
-    test/ ........... Test application
-    test/www/ ....... Web implementation
-    test/www/ext/ ... BlackBerry Java implementation
+    test/ ........... Test application using Lawnchair's test-suite
 
-Build and Deploy Plugin
------------------------
+Using the Plugin with your Project
+----------------------------------
+
+### Build the plugin
+
+    ant build
+
+### Install Java Library
+
+Copy
+
+    ./plugin/build/www/ext/store.jar
+
+To
+
+    c:/my-app/www/ext/store.jar
+
+### Install Web Assets
+
+Copy
+
+    ./plugin/build/www/javascript/store.js
+
+To _(anywhere inside your project's `www` directory)_
+
+    c:/my-app/www/javascript/store.js
+
+### Include the JavaScript
+
+    <script type="text/javascript" src="javascript/store.js"></script>
+
+Running the Tests
+-----------------
 
 ### Configuration
 
@@ -26,23 +60,16 @@ Specify your SDK location in `test/project.properties`:
 ### Build and Deploy
 
     ant help
-    ant load-device     # build/install plugin, build/install app to device
-    ant load-simulator  # build/install plugin, build/install app to simulator
+    ant load-device     # build plugin and run tests on a device
+    ant load-simulator  # build plugin and run tests on a simulator
 
 Plugin Development
 ------------------
 
 ### Java
 
-Edit the Java source code in `plugin/src/com/phonegap/plugins`
+    plugin/src/com/phonegap/plugins
 
-### JavaScript / Web Assets
+### Web
 
-Do whatever you need in `plugin/www`
-
-Troubleshooting
----------------
-
-__All of the Lawnchair tests fail on the simulator:__
-
-Insert an SDCard into the simulator.
+    plugin/www
