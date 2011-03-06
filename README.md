@@ -1,7 +1,11 @@
-Persistent Store Plugin
-=======================
+PhoneGap Hashpipe Plugin
+========================
 
-A plugin for PhoneGap BlackBerry WebWorks that implements BlackBerry's PersistentStore.
+> Store JSON with the platform's SDK.
+
+A PhoneGap plugin to create a hash table database using the platform's SDK. The concept is similar to [DOM Storage / Web Storage](https://developer.mozilla.org/en/dom/storage), with the bonus of no database size restriction.
+
+Supports Lawnchair using the BlackBerry PersistentStore adapter.
 
 Supported PhoneGap Platforms
 ----------------------------
@@ -26,27 +30,19 @@ Using the Plugin with your Project
 
 ### 2. Install Java Library
 
-Copy
+Copy `./plugin/build/www/ext/hashpipe.jar`
 
-    ./plugin/build/www/ext/store.jar
-
-To
-
-    c:/my-app/www/ext/store.jar
+To `c:/my-app/www/ext/hashpipe.jar`
 
 ### 3. Install Web Assets
 
-Copy
+Copy `./plugin/build/www/javascript/hashpipe.js`
 
-    ./plugin/build/www/javascript/store.js
-
-To _(anywhere inside your project's `www` directory)_
-
-    c:/my-app/www/javascript/store.js
+To `c:/my-app/www/javascript/hashpipe.js`
 
 ### 4. Include the JavaScript
 
-    <script type="text/javascript" src="javascript/store.js"></script>
+    <script type="text/javascript" src="javascript/hashpipe.js"></script>
 
 Running the Tests
 -----------------
