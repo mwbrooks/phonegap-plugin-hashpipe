@@ -95,3 +95,11 @@ Contributors
 - [filmaj](https://github.com/filmaj)
     - wrote [PhoneGap BlackBerry 4.6 PersistentStore](https://github.com/filmaj/phonegap-blackberry/blob/master/js/src/store.js) implementation
     - wrote Lawnchair BlackBerry PersistentStore adapter
+
+Future Work
+-----------
+
+- Extract BlackBerry 4.6 Store implementation to this plugin
+- Change JavaScript API
+- Rewrite Lawnchair plugin and rebrand to Hashpipe
+- Add iOS Core Data implementation
