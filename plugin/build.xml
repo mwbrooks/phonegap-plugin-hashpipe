@@ -43,15 +43,17 @@ Where:
 Installation:
 -------------
 
-  1. If you have a project at /my_project/
+  1. If you have a project at c:\my_project\
 
   2. Install the native extension:
 
-    - copy ${output.jar.dir}/${output.jar.file} to /my_project/www/ext/
+    - copy ${output.jar.dir}\${output.jar.file}
+      to   c:\my_project\www\ext\
 
   3. Install the Web assets:
 
-    - copy ${output.www.dir} to /my_project/www
+    - copy ${output.www.dir}
+      to   c:\my_project\www\
         </echo>
     </target>
 

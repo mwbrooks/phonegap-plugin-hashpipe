@@ -8,6 +8,12 @@
     <property name="app.dir"           location="test" />
     <property name="app.build.file"    location="${app.dir}/build.xml" />
 
+    <!-- BUILD PLUGIN -->
+
+    <target name="build">
+        <build-plugin />
+    </target>
+
     <!-- LOAD DEVICE -->
 
     <target name="load-device">
@@ -30,19 +36,22 @@ NAME
   ${ant.project.name}
 
 SYNOPSIS
-  ant COMMAND [-D&lt;argument&gt;=&lt;value&gt;]...
+  ant COMMAND
 
 DESCRIPTION
-  You can build and deploy your plugin to the test application.
+  You can build and deploy the plugin to the test application.
 
 COMMANDS
   help .............. Show this help menu.
                         ant, ant help
 
-  load-device ....... Builds and deploys plugin to a connected USB device.
+  build ............. Build the plugin to ${plugin.build.dir}
+                        build
+
+  load-device ....... Build plugin and run test-suite on a connected USB device.
                         ant load-device
 
-  load-simulator .... Builds and deploys plugin to default simulator.
+  load-simulator .... Build plugin and run test-suite on default simulator.
                         ant load-simulator
 
 GETTING STARTED
