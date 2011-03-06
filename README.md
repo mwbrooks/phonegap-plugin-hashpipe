@@ -20,11 +20,11 @@ Directory Structure
 Using the Plugin with your Project
 ----------------------------------
 
-### Build the plugin
+### 1. Build the plugin
 
     ant build
 
-### Install Java Library
+### 2. Install Java Library
 
 Copy
 
@@ -34,7 +34,7 @@ To
 
     c:/my-app/www/ext/store.jar
 
-### Install Web Assets
+### 3. Install Web Assets
 
 Copy
 
@@ -44,7 +44,7 @@ To _(anywhere inside your project's `www` directory)_
 
     c:/my-app/www/javascript/store.js
 
-### Include the JavaScript
+### 4. Include the JavaScript
 
     <script type="text/javascript" src="javascript/store.js"></script>
 
